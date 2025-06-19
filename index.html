@@ -3,17 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AasanTax provides comprehensive information and services for GST, income tax, company registration, and financial management in India. Simplify your taxes and compliance.">
+    <meta name="keywords" content="indian tax, gst services, income tax filing, company registration india, financial management, aasantax">
     <title>Welcome to AasanTax - Tax & Compliance Services</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <!-- Navigation bar will go here -->
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gst.html">GST</a></li>
+            <li><a href="income-tax.html">Income Tax</a></li>
+            <li><a href="companies-act.html">Companies Act</a></li>
+            <li><a href="startup-registrations.html">Startup Services</a></li>
+            <li><a href="other-registrations.html">Other Registrations</a></li>
+            <li><a href="tax-filing.html">Tax Filing</a></li>
+            <li><a href="audit-services.html">Audit Services</a></li>
+            <li><a href="fund-raising.html">Fund Raising</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
     </header>
 
     <h1>Welcome to AasanTax - Simplifying Taxation</h1>
 
     <main>
+        <div class="container">
         <section id="hero">
             <h2>Navigate GST, Income Tax, and Business Regulations with Ease.</h2>
             <p>Your one-stop destination for understanding complex Indian tax laws and business compliance. We provide clear, concise information and services to help you manage your finances and regulatory obligations effectively.</p>
@@ -21,42 +37,70 @@
 
         <section id="featured-services">
             <h2>Our Key Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>GST Services</h3>
+                    <p>Navigate GST registration, returns, and compliance with our expert guidance and resources.</p>
+                    <a href="gst.html">Learn More</a>
+                </div>
 
-            <div>
-                <h3>GST Services</h3>
-                <p>Comprehensive guidance on GST registration, returns, invoicing, and audits.</p>
-                <a href="gst.html">Learn More</a>
-            </div>
+                <div class="service-card">
+                    <h3>Income Tax Filing</h3>
+                    <p>Simplify your ITR filing, understand tax slabs, and maximize your tax savings with our assistance.</p>
+                    <a href="income-tax.html">Learn More</a>
+                </div>
 
-            <div>
-                <h3>Income Tax Filing</h3>
-                <p>Expert assistance with ITR filing, tax planning, and understanding deductions.</p>
-                <a href="income-tax.html">Learn More</a>
-            </div>
+                <div class="service-card">
+                    <h3>Startup Registration</h3>
+                    <p>Launch your dream venture with the right business structure and complete registration support from our team.</p>
+                    <a href="startup-registrations.html">Learn More</a>
+                </div>
 
-            <div>
-                <h3>Startup Registration</h3>
-                <p>Helping new businesses choose the right structure and complete all registration formalities.</p>
-                <a href="startup-registrations.html">Learn More</a>
-            </div>
-
-            <div>
-                <h3>Companies Act Compliance</h3>
-                <p>Ensuring your company adheres to all provisions of the Companies Act, 2013.</p>
-                <a href="companies-act.html">Learn More</a>
+                <div class="service-card">
+                    <h3>Companies Act Compliance</h3>
+                    <p>Ensure your company adheres to all provisions of the Companies Act, 2013, with our expert guidance.</p>
+                    <a href="companies-act.html">Learn More</a>
+                </div>
             </div>
         </section>
 
         <section id="why-choose-us">
             <h2>Why Choose Us?</h2>
-            <p>Placeholder for reasons to choose our services. This could be a list of benefits, our expertise, client testimonials, etc.</p>
+            <p>At AasanTax, we are committed to providing you with reliable, accessible, and easy-to-understand tax and compliance solutions. Here's why individuals and businesses trust us:</p>
             <ul>
-                <li>Expert Knowledge</li>
-                <li>Timely Updates</li>
-                <li>Comprehensive Resources</li>
-                <li>User-Friendly Guidance</li>
+                <li><strong>Expert Guidance:</strong> Our team of experienced Chartered Accountants and tax professionals provides accurate and up-to-date advice tailored to your specific needs.</li>
+                <li><strong>Comprehensive Services:</strong> From GST and income tax to company registration and compliance, we offer a wide range of services under one roof.</li>
+                <li><strong>Client-Centric Approach:</strong> We prioritize your needs and are dedicated to offering personalized solutions and responsive support to help you navigate complex matters.</li>
+                <li><strong>Simplified Processes:</strong> We leverage technology and clear communication to make complex tax and legal requirements easy to understand and manage, saving you time and effort.</li>
             </ul>
         </section>
+
+        <section id="consultation-cta">
+            <h2>Get a Free Consultation</h2>
+            <p>Have questions about taxes or compliance? Fill out the form below, and one of our experts will get in touch with you shortly.</p>
+            <form action="#" method="post"> <!-- The action attribute will need to be updated when backend is implemented -->
+                <div>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="phone">Phone:</label><br>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div>
+                    <label for="query">Your Query:</label><br>
+                    <textarea id="query" name="query" rows="4" required></textarea>
+                </div>
+                <div>
+                    <button type="submit">Submit Request</button>
+                </div>
+            </form>
+        </section>
+        </div>
     </main>
 
     <footer>

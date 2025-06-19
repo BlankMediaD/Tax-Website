@@ -1,1 +1,330 @@
-/* Placeholder for styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.6;
+    color: #333; /* Dark grey for text */
+    background-color: #f4f4f4; /* Light grey background */
+    padding: 20px; /* Some padding around the whole page */
+}
+
+.container { /* We'll need to add this class to a main wrapper div in HTML later if we want a centered fixed-width layout, but let's define it for now. Or apply to body/main elements if appropriate. For now, let's assume we'll wrap main content. */
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+    background-color: #fff; /* White background for content area */
+    padding: 20px;
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+    color: #1a73e8; /* A blue color for headings, similar to Google's blue */
+}
+h1 { font-size: 2.2em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.4em; }
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #1a73e8;
+    text-decoration: none; /* Remove underline by default */
+}
+a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: #0c5abc; /* Darker blue on hover */
+}
+
+/* Navigation Styles */
+header {
+    background-color: #333; /* Dark background for the header */
+    color: #fff;
+    padding: 10px 0; /* Padding top/bottom, no padding left/right to allow nav to be full width if container is inside */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+header nav {
+    width: 80%; /* Match the .container width for alignment */
+    max-width: 1200px; /* Match the .container max-width */
+    margin: 0 auto; /* Center the nav */
+    overflow: hidden; /* Clear floats */
+}
+
+header nav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    text-align: center; /* Center the menu items if they don't fill the width */
+}
+
+header nav ul li {
+    display: inline-block; /* Arrange menu items horizontally */
+    margin-right: 15px; /* Space between menu items */
+}
+
+header nav ul li:last-child {
+    margin-right: 0; /* No margin for the last item */
+}
+
+header nav ul li a {
+    color: #fff; /* White text for links */
+    padding: 10px 15px; /* Padding for clickable area */
+    display: block; /* Make the whole area clickable */
+    text-decoration: none;
+    border-radius: 5px; /* Slightly rounded corners for links */
+}
+
+header nav ul li a:hover {
+    background-color: #555; /* Darker background on hover */
+    text-decoration: none; /* Ensure no underline on hover for nav links */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px; /* Space above the footer */
+    /* Assuming footer is outside the .container for full width */
+}
+
+footer p { /* If there's a p in footer, e.g. copyright */
+    margin-bottom: 0;
+}
+
+/* Basic Form Styling (for consultation form on index.html) */
+#consultation-cta form div {
+    margin-bottom: 15px; /* Space between form rows */
+}
+
+#consultation-cta form label {
+    display: block; /* Make labels take their own line */
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#consultation-cta form input[type="text"],
+#consultation-cta form input[type="email"],
+#consultation-cta form input[type="tel"],
+#consultation-cta form textarea {
+    width: 100%; /* Make form fields take full width of their container */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif; /* Ensure consistent font */
+}
+
+#consultation-cta form textarea {
+    resize: vertical; /* Allow vertical resize, not horizontal */
+}
+
+#consultation-cta form button[type="submit"] {
+    background-color: #1a73e8; /* Blue similar to headings */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#consultation-cta form button[type="submit"]:hover {
+    background-color: #0c5abc; /* Darker blue on hover */
+}
+
+/* List Styling for main content */
+.container ul, .container ol {
+    padding-left: 20px; /* Add some padding to lists inside the main content container */
+    margin-bottom: 15px;
+}
+
+.container ul li, .container ol li {
+    margin-bottom: 5px; /* Space between list items */
+}
+
+/* Spacing for Sections within .container */
+.container section {
+    margin-bottom: 25px; /* Space between sections */
+    padding-bottom: 25px; /* Space at the bottom of the section content */
+    border-bottom: 1px solid #eee; /* Subtle separator line */
+}
+.container section:last-of-type { /* Don't add border/padding to the very last section in the container */
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* Featured Services Section Styling */
+#featured-services {
+    text-align: center; /* Center the heading of the section */
+}
+
+#featured-services .service-grid { /* Add a wrapper div with this class inside #featured-services if not already present, to use flexbox */
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    justify-content: space-around; /* Distribute space around items */
+    gap: 20px; /* Space between cards */
+    margin-top: 20px;
+}
+
+#featured-services .service-card { /* Each div representing a service should get this class */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(33.333% - 40px); /* Aim for 3 cards per row, accounting for gap. Adjust as needed. */
+    min-width: 280px; /* Minimum width before wrapping strongly */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    text-align: left; /* Align text to the left within cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+#featured-services .service-card:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Enhanced shadow on hover */
+}
+
+#featured-services .service-card h3 {
+    margin-top: 0; /* Remove default top margin if any */
+    color: #1a73e8; /* Ensure heading color is consistent */
+}
+
+#featured-services .service-card p {
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+#featured-services .service-card a {
+    display: inline-block;
+    background-color: #1a73e8;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#featured-services .service-card a:hover {
+    background-color: #0c5abc;
+    text-decoration: none;
+}
+
+/* Hero Section Styling (index.html) */
+#hero {
+    background-color: #e8f0fe; /* A light blue, complementary to the heading blue */
+    padding: 40px 20px; /* Generous padding */
+    text-align: center; /* Center the text */
+    border-bottom: none; /* Remove the default section border if it's applied by .container section rule */
+    margin-bottom: 25px; /* Ensure space below it, consistent with other sections */
+}
+
+#hero h1, #hero h2 { /* Assuming the main page title might be moved into the hero or is closely associated */
+    color: #1a73e8; /* Main blue color */
+    margin-bottom: 15px;
+}
+
+/* If the main H1 of the page is outside the hero but still conceptually part of it, adjust selector.
+   For now, assuming H1/H2 might be inside #hero or an H2 is the main tagline. */
+
+#hero p {
+    font-size: 1.1em;
+    color: #3c4043; /* A darker grey for readability on light blue */
+    max-width: 700px; /* Constrain width of paragraph for better readability */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px; /* Space before any call to action */
+}
+
+/* Optional: If there's a Call to Action button directly in the hero */
+#hero .cta-button {
+    display: inline-block;
+    background-color: #1a73e8;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+#hero .cta-button:hover {
+    background-color: #0c5abc;
+}
+
+/* Why Choose Us Section Styling */
+#why-choose-us {
+    background-color: #f9f9f9; /* Slightly different background for this section */
+    padding: 30px 20px;
+    text-align: center; /* Center the section heading */
+    border-top: 1px solid #eee; /* Separator line if needed */
+    /* border-bottom will be handled by .container section rules or removed if it's the last section */
+}
+
+#why-choose-us h2 {
+    margin-bottom: 25px;
+}
+
+#why-choose-us ul {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+    display: flex; /* Use flexbox for layout if suitable for the points */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+#why-choose-us ul li {
+    /* If using flexbox, define flex basis or width for items */
+    flex-basis: calc(45% - 20px); /* Example: 2 items per row on wider screens, adjust gap */
+    min-width: 250px; /* Ensure readability */
+    text-align: left; /* Align text left within each list item */
+    margin-bottom: 15px; /* Consistent spacing from general list styling */
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#why-choose-us ul li strong { /* Style the heading of each point */
+    color: #1a73e8;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Consultation CTA Section Styling */
+#consultation-cta {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #e8f0fe; /* Same as hero or a distinct CTA color */
+    /* border-top: 1px solid #eee; */ /* Already has border from previous section if not hero */
+}
+
+#consultation-cta h2 {
+    margin-bottom: 15px;
+}
+
+#consultation-cta p { /* The paragraph before the form */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    font-size: 1.05em;
+    color: #3c4043;
+}
+
+/* Ensure the form itself has some max-width if not already constrained by .container */
+#consultation-cta form {
+    max-width: 650px;
+    margin: 0 auto; /* Center the form */
+}
