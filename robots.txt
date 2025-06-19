@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Allow all content to be crawled by all robots by default.
+# You can add Disallow rules later if there are specific areas
+# you don't want crawled, e.g.:
+# Disallow: /admin/
+# Disallow: /tmp/
+
+# You can also specify a sitemap location if you have one (we don't yet)
+# Sitemap: https://www.aasantax.com/sitemap.xml

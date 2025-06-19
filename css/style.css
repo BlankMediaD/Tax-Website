@@ -8,7 +8,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     line-height: 1.6;
     color: #333; /* Dark grey for text */
-    background-color: #f4f4f4; /* Light grey background */
+    background-image: linear-gradient(to bottom, #ffffff, #f0f2f5); /* Subtle gradient background */
     padding: 20px; /* Some padding around the whole page */
 }
 
@@ -17,21 +17,27 @@ body {
     max-width: 1200px;
     margin: 0 auto; /* Center the container */
     background-color: #fff; /* White background for content area */
-    padding: 20px;
+    padding: 30px; /* Increased padding */
     border-radius: 8px; /* Slightly rounded corners */
     box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow */
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 10px;
+    /* margin-bottom adjusted below per heading level */
     color: #1a73e8; /* A blue color for headings, similar to Google's blue */
 }
-h1 { font-size: 2.2em; }
-h2 { font-size: 1.8em; }
-h3 { font-size: 1.4em; }
+h1 { font-size: 2.2em; margin-bottom: 20px; } /* Increased from 10px */
+h2 { font-size: 1.8em; margin-bottom: 15px; } /* Increased from 10px */
+h3 { font-size: 1.4em; margin-bottom: 10px; } /* Stays 10px */
+/* h4, h5, h6 will use the default 10px from the group rule if not overridden */
 
 p {
     margin-bottom: 15px;
+}
+
+strong, b {
+    font-weight: bold;
+    color: #202124; /* Slightly darker for emphasis */
 }
 
 a {
@@ -41,6 +47,31 @@ a {
 a:hover {
     text-decoration: underline; /* Add underline on hover */
     color: #0c5abc; /* Darker blue on hover */
+}
+
+/* Generic Button Style */
+.btn {
+    display: inline-block;
+    background-color: #1a73e8; /* Main blue */
+    color: #fff !important; /* Ensure text is white, important to override default link color if applied to <a> */
+    padding: 12px 25px; /* Increased padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.05em; /* Slightly increased font size */
+    font-weight: bold; /* Added font-weight */
+    text-align: center;
+    text-decoration: none; /* Ensure no underline */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added transform and box-shadow to transition */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Added subtle box-shadow */
+}
+
+.btn:hover {
+    background-color: #0c5abc; /* Darker blue */
+    color: #fff !important;
+    text-decoration: none;
+    transform: translateY(-1px); /* Added subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Updated box-shadow for hover */
 }
 
 /* Navigation Styles */
@@ -87,6 +118,11 @@ header nav ul li a:hover {
     text-decoration: none; /* Ensure no underline on hover for nav links */
 }
 
+header nav ul li a.active-nav-link {
+    background-color: #555; /* Same as hover, or a distinct color */
+    font-weight: bold; /* Make it stand out a bit more */
+}
+
 /* Footer Styling */
 footer {
     background-color: #333;
@@ -128,17 +164,12 @@ footer p { /* If there's a p in footer, e.g. copyright */
 }
 
 #consultation-cta form button[type="submit"] {
-    background-color: #1a73e8; /* Blue similar to headings */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
+    /* Specific styles removed, will use .btn class */
+    /* Example: Keep if there are specific margins or width not covered by .btn */
 }
 
 #consultation-cta form button[type="submit"]:hover {
-    background-color: #0c5abc; /* Darker blue on hover */
+    /* Specific styles removed, will use .btn class */
 }
 
 /* List Styling for main content */
@@ -156,6 +187,11 @@ footer p { /* If there's a p in footer, e.g. copyright */
     margin-bottom: 25px; /* Space between sections */
     padding-bottom: 25px; /* Space at the bottom of the section content */
     border-bottom: 1px solid #eee; /* Subtle separator line */
+}
+.container section > h2:first-child,
+.container section > h3:first-child,
+.container section > h4:first-child { /* Cover various heading levels that might start a section */
+    margin-top: 0;
 }
 .container section:last-of-type { /* Don't add border/padding to the very last section in the container */
     border-bottom: none;
@@ -205,23 +241,18 @@ footer p { /* If there's a p in footer, e.g. copyright */
 }
 
 #featured-services .service-card a {
-    display: inline-block;
-    background-color: #1a73e8;
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
+    /* Specific styles removed, will use .btn class */
+    /* display: inline-block; */ /* This is in .btn */
+    /* font-weight: bold; */ /* Consider adding to .btn if all buttons need it, or keep here if specific */
 }
 
 #featured-services .service-card a:hover {
-    background-color: #0c5abc;
-    text-decoration: none;
+     /* Specific styles removed, will use .btn class */
 }
 
 /* Hero Section Styling (index.html) */
 #hero {
-    background-color: #e8f0fe; /* A light blue, complementary to the heading blue */
+    background-image: linear-gradient(to right bottom, #e8f0fe, #d8e2fb); /* Subtle diagonal light blue gradient */
     padding: 40px 20px; /* Generous padding */
     text-align: center; /* Center the text */
     border-bottom: none; /* Remove the default section border if it's applied by .container section rule */
@@ -328,3 +359,168 @@ footer p { /* If there's a p in footer, e.g. copyright */
     max-width: 650px;
     margin: 0 auto; /* Center the form */
 }
+
+/* Responsive Design Adjustments */
+
+/* For tablets and smaller desktops */
+@media (max-width: 992px) {
+    .container {
+        width: 90%; /* Increase container width for better use of space */
+    }
+
+    header nav {
+        width: 90%; /* Adjust nav width accordingly */
+    }
+
+    #featured-services .service-card {
+        width: calc(50% - 20px); /* 2 cards per row, adjust for gap */
+    }
+
+    #why-choose-us ul li {
+        flex-basis: calc(100% - 20px); /* 1 card per row on tablets */
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reduce body padding */
+    }
+
+    .container {
+        width: 95%; /* Further increase container width */
+        padding: 20px; /* Adjusted responsive padding */
+    }
+
+    header nav {
+        width: 95%; /* Adjust nav width */
+        text-align: center; /* Ensure nav items are centered if they stack */
+    }
+
+    header nav ul li {
+        display: block; /* Stack nav items vertically */
+        margin-right: 0;
+        margin-bottom: 5px; /* Space between stacked nav items */
+    }
+
+    header nav ul li a {
+        padding: 8px; /* Adjust padding for stacked items */
+    }
+
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.2em; }
+
+    #featured-services .service-card {
+        width: 100%; /* 1 card per row */
+        margin-bottom: 15px;
+    }
+
+    #hero {
+        padding: 20px 10px;
+    }
+    #hero p {
+        font-size: 1em;
+    }
+
+    #consultation-cta form input[type="text"],
+    #consultation-cta form input[type="email"],
+    #consultation-cta form input[type="tel"],
+    #consultation-cta form textarea {
+        padding: 8px; /* Adjust form field padding */
+    }
+
+    #consultation-cta form button[type="submit"] {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px; /* Adjusted responsive padding */
+    }
+    /* Add any further very small screen adjustments if needed */
+}
+
+/* Modal Popup Styles */
+.modal-overlay {
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Appear on top */
+    /* display: none; /* Will be controlled by JS or inline style for now */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 500px; /* Max width of the modal */
+    position: relative; /* For positioning the close button */
+    animation: fadeInModal 0.3s ease-out;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-close-btn:hover {
+    color: #777;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #1a73e8;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+}
+
+/* Form styling within modal (can reuse parts of #consultation-cta form styles if made generic) */
+#popup-consultation-form div {
+    margin-bottom: 15px;
+}
+
+#popup-consultation-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#popup-consultation-form input[type="text"],
+#popup-consultation-form input[type="email"],
+#popup-consultation-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit; /* Inherit from body */
+}
+
+#popup-consultation-form textarea {
+    resize: vertical;
+}
+
+/* The .btn class will style the submit button */
